@@ -2,12 +2,12 @@
 
 function hideElementById(elementId){
     const element = document.getElementById(elementId).classList
-    const elementHide = element.add('hidden')
+    elementHide = element.add('hidden')
 }
 
 function showElementById(elementId){
     const element = document.getElementById(elementId).classList
-    const elementShow = element.remove('hidden')
+    elementShow = element.remove('hidden')
 }
 
 
@@ -25,9 +25,28 @@ function getRandomAlphabet(){
 }
 
 
+
 // add bg to keypads
 
-function setBgtoKeys(keyId){
+function setBgToKeys(keyId){
     const key = document.getElementById(keyId)
     key.classList.add('bg-orange-400')
 }
+
+// remove bg to keypads
+
+function removeBgfromKeys(keyId){
+    const key = document.getElementById(keyId)
+    key.classList.remove('bg-orange-400')
+}
+
+
+// add bg to wrong keypads
+
+function setBgToWrongKeys(keyId){
+    const key = document.getElementById(keyId)
+    key.classList.add('bg-red-600')
+}
+
+
+// getting score
