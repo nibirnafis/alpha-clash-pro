@@ -18,7 +18,7 @@ function keyPress(event){
     if(onDisplayKey === playerPressed){
         console.log('you got a point')
         
-        // score update
+        // score update / (also can be done using function)
         const score = document.getElementById('current-score')
         const currentScoreText = score.innerText
         const currentScore = parseInt(currentScoreText)
@@ -32,14 +32,22 @@ function keyPress(event){
     else{
         console.log('you lose a point')
 
-        // life update
+        // life update / (also can be done using function)
         const life = document.getElementById('current-life')
         const currentLifeText = life.innerText
         const currentLife = parseInt(currentLifeText)
         const newLife = currentLife - 1
         life.innerText = newLife;
 
-        setBgToWrongKeys(event.key)
+        // if life is 0
+        if(newLife < 1){
+            hideElementById('Game')
+            showElementById('Final-Score')
+            // final score page
+            const lastScore = document.getElementById('current-score').innerText
+            const finalScore = document.getElementById('finalScoreNumber')
+            finalScore.innerText = lastScore;
+        }
     }
 }
 
@@ -63,7 +71,21 @@ function continueGame(){
 // Methode: 2 (from utility.js)
 
 function play(){
-    const removeElement = hideElementById('Home')
-    const elementShow = showElementById('Game')
+    hideElementById('Home')
+    showElementById('Game')
     continueGame()
 }
+
+// Play again
+
+function playAgain(){
+    hideElementById('Final-Score')
+    showElementById('Game')
+    setScoreLifeById('current-life', 5)
+    setScoreLifeById('current-score', 0)
+    // remove bg from the key
+    const currentAlphabate = document.getElementById('currentAlphabate')
+    removeBgfromKeys(currentAlphabate)
+    continueGame()
+}
+

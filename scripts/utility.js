@@ -33,20 +33,20 @@ function setBgToKeys(keyId){
     key.classList.add('bg-orange-400')
 }
 
-// remove bg to keypads
+// remove bg from keypads
 
 function removeBgfromKeys(keyId){
     const key = document.getElementById(keyId)
     key.classList.remove('bg-orange-400')
 }
 
+// remove bg from keys after play again
 
-// add bg to wrong keypads
 
-function setBgToWrongKeys(keyId){
-    const key = document.getElementById(keyId)
-    key.classList.add('bg-red-600')
+
+// restart score/Life
+
+function setScoreLifeById(scoreLifeId, value){
+    const reScoreLife = document.getElementById(scoreLifeId)
+    reScoreLife.innerText = value
 }
-
-
-// getting score
